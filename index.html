@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="description" content="PoseConvSpot: Overcoming Domain Shifts in Precise Event Spotting for Sports Videos via Pose-Only Spatio-Temporal Regression">
+  <meta name="keywords" content="Precise Event Spotting, Sports Analytics, Pose Estimation, Spatio-Temporal Regression, MMSports 2026">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>PoseConvSpot | Project Page</title>
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro" rel="stylesheet">
+
+  <!-- Bulma CSS & Icons -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
+
+  <style>
+    body {
+      font-family: 'Noto Sans', sans-serif;
+    }
+    .publication-title {
+      font-family: 'Google Sans', sans-serif;
+      font-weight: 700;
+    }
+    .author-block {
+      margin-right: 12px;
+    }
+    .publication-venue {
+      color: #555;
+      font-size: 1.25rem;
+      font-weight: 600;
+      margin-top: 10px;
+    }
+    .hero-body {
+      padding-bottom: 1.5rem;
+    }
+    .link-block a {
+      margin-top: 5px;
+      margin-bottom: 5px;
+    }
+    .teaser-image {
+      border-radius: 8px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+    }
+    .section-title {
+      font-family: 'Google Sans', sans-serif;
+      font-weight: 700;
+    }
+    pre {
+      background-color: #f5f5f5;
+      border-radius: 6px;
+      padding: 1.25rem;
+      text-align: left;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- HERO SECTION: Title, Authors, Buttons -->
+  <section class="hero">
+    <div class="hero-body">
+      <div class="container is-max-desktop has-text-centered">
+        
+        <!-- Paper Title -->
+        <h1 class="title is-2 publication-title">
+          PoseConvSpot: Overcoming Domain Shifts in Precise Event Spotting for Sports Videos via Pose-Only Spatio-Temporal Regression
+        </h1>
+
+        <!-- Conference Badge -->
+        <div class="publication-venue">
+          <span>ACM MMSports '26 (ACM Multimedia 2026 Workshop)</span>
+        </div>
+
+        <!-- Authors -->
+        <div class="is-size-5 publication-authors mt-4">
+          <span class="author-block">
+            <a href="#">Noâm Boussouf</a><sup>1,2</sup>,
+          </span>
+          <span class="author-block">
+            <a href="#">Adrien Maglo</a><sup>3,*</sup>,
+          </span>
+          <span class="author-block">
+            <a href="#">Mohamed Chaouch</a><sup>3</sup>,
+          </span>
+          <span class="author-block">
+            <a href="#">Paul Pham Dang</a><sup>1</sup>,
+          </span>
+          <span class="author-block">
+            <a href="#">Hideo Saito</a><sup>1</sup>
+          </span>
+        </div>
+
+        <!-- Affiliations -->
+        <div class="is-size-6 publication-affiliations mt-2">
+          <span class="author-block"><sup>1</sup>Keio University, Japan</span> &emsp;
+          <span class="author-block"><sup>2</sup>École Centrale de Nantes, France</span> &emsp;
+          <span class="author-block"><sup>3</sup>Université Paris-Saclay, CEA-List, France</span>
+        </div>
+        <div class="is-size-7 mt-1 has-text-grey">
+          <span><sup>*</sup>Corresponding Author</span>
+        </div>
+
+        <!-- Action Links & Buttons -->
+        <div class="column has-text-centered mt-4">
+          <div class="publication-links">
+            
+            <!-- Paper PDF Button -->
+            <span class="link-block">
+              <a href="https://doi.org/10.1145/3841455.3841529" target="_blank" class="external-link button is-normal is-rounded is-dark">
+                <span class="icon"><i class="fas fa-file-pdf"></i></span>
+                <span>Paper</span>
+              </a>
+            </span>
+
+            <!-- Supplementary Button -->
+            <span class="link-block">
+              <a href="#" target="_blank" class="external-link button is-normal is-rounded is-dark">
+                <span class="icon"><i class="fas fa-file-lines"></i></span>
+                <span>Supplementary</span>
+              </a>
+            </span>
+
+            <!-- Code Button -->
+            <span class="link-block">
+              <a href="https://github.com/NoamBsf/PoseConvSpot" target="_blank" class="external-link button is-normal is-rounded is-dark">
+                <span class="icon"><i class="fab fa-github"></i></span>
+                <span>Code</span>
+              </a>
+            </span>
+
+            <!-- Dataset Button -->
+            <span class="link-block">
+              <a href="#" target="_blank" class="external-link button is-normal is-rounded is-dark">
+                <span class="icon"><i class="fas fa-database"></i></span>
+                <span>Dataset</span>
+              </a>
+            </span>
+
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- TEASER FIGURE SECTION -->
+  <section class="hero teaser">
+    <div class="container is-max-desktop">
+      <div class="hero-body has-text-centered">
+        <img src="static/images/teaser_PoseConvSpot.png" class="teaser-image" alt="PoseConvSpot Teaser" width="100%">
+        <h2 class="subtitle has-text-centered mt-3 is-size-6">
+          <strong>PoseConvSpot</strong> isolates athletes by projecting 2D pose skeletons into spatio-temporal video heatmaps, mitigating visual domain shifts and outperforming state-of-the-art RGB spotting baselines by <strong>+14.1% mAP@3</strong> in unseen arenas.
+        </h2>
+      </div>
+    </div>
+  </section>
+
+  <!-- ABSTRACT SECTION -->
+  <section class="section">
+    <div class="container is-max-desktop">
+      <div class="columns is-centered has-text-centered">
+        <div class="column is-four-fifths">
+          <h2 class="title is-3 section-title">Abstract</h2>
+          <div class="content has-text-justified">
+            <p>
+              Precise Event Spotting (PES) demands frame-level accuracy for localized actions in sports analytics. Existing RGB pipelines struggle in dense multi-player scenes and are vulnerable to pixel-level domain shifts (lighting, court layouts, camera angles). We propose <em>PoseConvSpot</em>, a pose-only spatio-temporal regression framework tailored for high-fidelity micro-event spotting. Operating exclusively on 2D joint coordinates, our pipeline projects skeletons into spatio-temporal heatmaps that naturally isolate individual actors. Combining directional <em>Strip Pooling</em>, a <em>Shared-Head GRU</em>, and a continuous <em>Soft Gamma Loss</em>, PoseConvSpot isolates biomechanical events without relying on fine-grained visual textures. Evaluations on a multi-sport benchmark show that our method matches state-of-the-art RGB architectures while providing superior cross-arena generalization (+14.1% absolute mAP@3 gain on unseen courts) and peak-focused predictions without heuristic post-processing.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- METHOD OVERVIEW SECTION -->
+  <section class="section has-background-light">
+    <div class="container is-max-desktop">
+      <div class="columns is-centered">
+        <div class="column is-full-width">
+          <h2 class="title is-3 section-title has-text-centered">Method Overview</h2>
+          
+          <!-- Architecture Diagram -->
+          <div class="has-text-centered mb-5">
+            <img src="static/images/PoseConvSpot.png" class="teaser-image" alt="Architecture Diagram" width="90%">
+          </div>
+
+          <div class="content has-text-justified">
+            <p>
+              <strong>PoseConvSpot</strong> decouples event spotting from visual appearance by relying exclusively on 2D kinematic features:
+            </p>
+            <ol>
+              <li>
+                <strong>Spatio-Temporal Pose Heatmaps:</strong> 2D skeletal detections are stacked over temporal sliding windows into pseudo-image heatmaps, effectively isolating individual athlete motions without visual background noise.
+              </li>
+              <li>
+                <strong>Strip Pooling & Recurrent Head:</strong> Directional strip pooling captures long-range spatial joint trajectories, while a Shared-Head GRU models frame-by-frame temporal dynamics.
+              </li>
+              <li>
+                <strong>Continuous Soft Gamma Loss:</strong> Mitigates temporal label imbalance and enforces smooth, confident peak generation around exact frame-level event timestamps.
+              </li>
+            </ol>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- BIBTEX / CITATION SECTION -->
+  <section class="section" id="BibTeX">
+    <div class="container is-max-desktop content">
+      <h2 class="title is-3 section-title">BibTeX</h2>
+      <pre><code>@inproceedings{boussouf2026poseconvspot,
+  title={PoseConvSpot: Overcoming Domain Shifts in Precise Event Spotting for Sports Videos via Pose-Only Spatio-Temporal Regression},
+  author={Boussouf, No{\^a}m and Maglo, Adrien and Chaouch, Mohamed and Pham Dang, Paul and Saito, Hideo},
+  booktitle={Proceedings of the 9th ACM International Workshop on Multimedia Content Analysis in Sports (MMSports '26)},
+  year={2026},
+  doi={10.1145/3841455.3841529}
+}</code></pre>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="container">
+      <div class="content has-text-centered">
+        <p class="is-size-7">
+          This webpage template is adapted from <a href="https://github.com/nerfies/nerfies.github.io" target="_blank">Nerfies</a> under a <a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/" target="_blank">CC BY-SA 4.0 License</a>.
+        </p>
+      </div>
+    </div>
+  </footer>
+
+</body>
+</html>
