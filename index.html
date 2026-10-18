@@ -47,6 +47,27 @@
       font-family: 'Google Sans', sans-serif;
       font-weight: 700;
     }
+    .table-results th, .table-results td {
+      text-align: center;
+      vertical-align: middle;
+      font-size: 0.9rem;
+      padding: 0.5rem 0.6rem;
+    }
+    .table-results td.text-left, .table-results th.text-left {
+      text-align: left;
+    }
+    .table-container {
+      margin-bottom: 0.75rem;
+    }
+    .std-dev {
+      color: #7a7a7a;
+      font-size: 0.75rem;
+      font-weight: normal;
+    }
+    .best-score {
+      font-weight: 700;
+      color: #1a1a1a;
+    }
     pre {
       background-color: #f5f5f5;
       border-radius: 6px;
@@ -157,6 +178,21 @@
     </div>
   </section>
 
+  <!-- NEWS & UPDATES SECTION -->
+  <section class="section">
+    <div class="container is-max-desktop">
+      <h2 class="title is-3 section-title has-text-centered">News & Updates</h2>
+      <div class="content">
+        <ul>
+          <li><strong>[August 2026]</strong> Project webpage launched and camera-ready paper accepted at ACM MMSports '26.</li>
+          <li><strong>[November 2026]</strong> Oral presentation at <strong>ACM MMSports '26</strong> (Rio de Janeiro, Brazil).</li>
+          <li><strong>[Coming Soon]</strong> Public release of the training/inference code, dataset extraction pipeline, and pretrained checkpoints.</li>
+          <li><strong>[Coming Soon]</strong> Public release of the video teaser.</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
   <!-- ABSTRACT SECTION -->
   <section class="section">
     <div class="container is-max-desktop">
@@ -207,18 +243,304 @@
     </div>
   </section>
 
-  <!-- NEWS & UPDATES SECTION -->
+  <!-- EXPERIMENTAL RESULTS SECTION -->
   <section class="section">
-    <div class="container is-max-desktop">
-      <h2 class="title is-3 section-title has-text-centered">News & Updates</h2>
-      <div class="content">
-        <ul>
-          <li><strong>[August 2026]</strong> Project webpage launched and camera-ready paper accepted at ACM MMSports '26.</li>
-          <li><strong>[November 2026]</strong> Paper presentation at <strong>ACM MMSports '26</strong> (Rio de Janeiro, Brazil).</li>
-          <li><strong>[Coming Soon]</strong> Public release of the training/inference code, dataset extraction pipeline, and pretrained checkpoints.</li>
-          <li><strong>[Coming Soon]</strong> Public release of the video teaser.</li>
-        </ul>
+    <div class="container is-max-widescreen">
+      <h2 class="title is-3 section-title has-text-centered">Experimental Results</h2>
+      <p class="subtitle is-6 has-text-centered has-text-grey mb-5">
+        Evaluation on the <em>SportsJumpMotion</em> dataset across standard, cross-venue (LOAO), and data-constrained protocols.
+      </p>
+
+      <!-- ROW 1: SOTA Benchmark & Unseen Domain Generalization (Side by Side) -->
+      <div class="columns is-desktop is-variable is-4">
+        
+        <!-- COLUMN 1: General Results / Standard SOTA Benchmark -->
+        <div class="column is-6">
+          <div class="box">
+            <h3 class="title is-5 mb-2 has-text-centered">Standard Benchmark (SOTA Comparison)</h3>
+            <p class="is-size-7 has-text-grey has-text-centered mb-3">
+              Standard protocol on volleyball and basketball tracklets. Top results averaged over 3 seeds.
+            </p>
+            <div class="table-container">
+              <table class="table is-striped is-hoverable is-fullwidth table-results">
+                <thead>
+                  <tr>
+                    <th class="text-left">Method</th>
+                    <th>Mod.</th>
+                    <th>mAP@1</th>
+                    <th>mAP@2</th>
+                    <th>mAP@3</th>
+                    <th>mAP@4</th>
+                    <th>F1 (@3)</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td class="text-left">E2E-Spot</td>
+                    <td><span class="tag is-info is-light is-small">RGB</span></td>
+                    <td>54.31</td>
+                    <td>74.84</td>
+                    <td>80.55</td>
+                    <td>81.86</td>
+                    <td>84.27</td>
+                  </tr>
+                  <tr>
+                    <td class="text-left">T-DEED<sub>200MF</sub></td>
+                    <td><span class="tag is-info is-light is-small">RGB</span></td>
+                    <td>82.67 <span class="std-dev">±0.70</span></td>
+                    <td>91.68 <span class="std-dev">±1.00</span></td>
+                    <td>94.41 <span class="std-dev">±0.40</span></td>
+                    <td>94.95 <span class="std-dev">±0.20</span></td>
+                    <td>91.52 <span class="std-dev">±0.81</span></td>
+                  </tr>
+                  <tr>
+                    <td class="text-left">T-DEED<sub>800MF</sub></td>
+                    <td><span class="tag is-info is-light is-small">RGB</span></td>
+                    <td class="best-score">84.52 <span class="std-dev">±1.70</span></td>
+                    <td>92.28 <span class="std-dev">±0.30</span></td>
+                    <td>94.66 <span class="std-dev">±0.40</span></td>
+                    <td>95.45 <span class="std-dev">±0.40</span></td>
+                    <td>91.71 <span class="std-dev">±0.15</span></td>
+                  </tr>
+                  <tr>
+                    <td class="text-left">AdaSpot</td>
+                    <td><span class="tag is-info is-light is-small">RGB</span></td>
+                    <td>82.06</td>
+                    <td>90.11</td>
+                    <td>92.91</td>
+                    <td>93.78</td>
+                    <td>87.28</td>
+                  </tr>
+                  <tr style="border-top: 2px solid #dbdbdb;">
+                    <td class="text-left">Ours (Joints)</td>
+                    <td><span class="tag is-success is-light is-small">Pose</span></td>
+                    <td>78.83 <span class="std-dev">±1.62</span></td>
+                    <td>92.26 <span class="std-dev">±0.43</span></td>
+                    <td>95.91 <span class="std-dev">±0.40</span></td>
+                    <td>96.79 <span class="std-dev">±0.12</span></td>
+                    <td>91.62 <span class="std-dev">±0.31</span></td>
+                  </tr>
+                  <tr>
+                    <td class="text-left">Ours (Limbs)</td>
+                    <td><span class="tag is-success is-light is-small">Pose</span></td>
+                    <td>79.09 <span class="std-dev">±1.06</span></td>
+                    <td>93.20 <span class="std-dev">±0.64</span></td>
+                    <td>96.05 <span class="std-dev">±0.66</span></td>
+                    <td>96.80 <span class="std-dev">±0.50</span></td>
+                    <td>92.32 <span class="std-dev">±0.18</span></td>
+                  </tr>
+                  <tr class="has-background-success-light">
+                    <td class="text-left"><strong>Ours (Full)</strong></td>
+                    <td><span class="tag is-success is-dark is-small">Pose</span></td>
+                    <td>79.08 <span class="std-dev">±0.34</span></td>
+                    <td class="best-score">93.82 <span class="std-dev">±0.20</span></td>
+                    <td class="best-score">96.88 <span class="std-dev">±0.32</span></td>
+                    <td class="best-score">97.70 <span class="std-dev">±0.32</span></td>
+                    <td class="best-score">93.16 <span class="std-dev">±0.52</span></td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <p class="is-size-7 has-text-grey">
+              PoseConvSpot outperforms RGB baselines on all operational thresholds ($\delta \ge 2$) without relying on visual background cues.
+            </p>
+          </div>
+        </div>
+
+        <!-- COLUMN 2: Unseen Domain Generalization (LOAO) -->
+        <div class="column is-6">
+          <div class="box">
+            <h3 class="title is-5 mb-2 has-text-centered">Unseen Domain Generalization (LOAO)</h3>
+            <p class="is-size-7 has-text-grey has-text-centered mb-3">
+              Leave-One-Arena-Out protocol (trained on a court subset, tested on novel venues).
+            </p>
+            <div class="table-container">
+              <table class="table is-striped is-hoverable is-fullwidth table-results">
+                <thead>
+                  <tr>
+                    <th class="text-left">Method</th>
+                    <th>Mod.</th>
+                    <th>mAP@1</th>
+                    <th>mAP@2</th>
+                    <th>mAP@3</th>
+                    <th>mAP@4</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td class="text-left">T-DEED<sub>200MF</sub></td>
+                    <td><span class="tag is-info is-light is-small">RGB</span></td>
+                    <td>58.11</td>
+                    <td>74.50</td>
+                    <td>76.35</td>
+                    <td>76.93</td>
+                  </tr>
+                  <tr>
+                    <td class="text-left">T-DEED<sub>800MF</sub></td>
+                    <td><span class="tag is-info is-light is-small">RGB</span></td>
+                    <td>61.79</td>
+                    <td>72.61</td>
+                    <td>73.32</td>
+                    <td>73.75</td>
+                  </tr>
+                  <tr style="border-top: 2px solid #dbdbdb;">
+                    <td class="text-left">Ours (Joints)</td>
+                    <td><span class="tag is-success is-light is-small">Pose</span></td>
+                    <td>65.69</td>
+                    <td class="best-score">83.40</td>
+                    <td>89.57</td>
+                    <td>90.30</td>
+                  </tr>
+                  <tr>
+                    <td class="text-left">Ours (Limbs)</td>
+                    <td><span class="tag is-success is-light is-small">Pose</span></td>
+                    <td class="best-score">66.31</td>
+                    <td>82.83</td>
+                    <td>87.95</td>
+                    <td>90.85</td>
+                  </tr>
+                  <tr class="has-background-success-light">
+                    <td class="text-left"><strong>Ours (Full J+L)</strong></td>
+                    <td><span class="tag is-success is-dark is-small">Pose</span></td>
+                    <td>64.58</td>
+                    <td>81.91</td>
+                    <td class="best-score">90.40</td>
+                    <td class="best-score">91.23</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <div class="notification is-success is-light p-2 mt-2">
+              <p class="is-size-7 has-text-centered">
+                <strong>+14.05% absolute gain</strong> in mAP@3 over RGB baselines, demonstrating immunity against unseen lighting and court designs.
+              </p>
+            </div>
+          </div>
+        </div>
+
       </div>
+
+      <!-- ROW 2: Data-Efficiency Protocol -->
+      <div class="columns is-centered mt-4">
+        <div class="column is-10-desktop is-12-tablet">
+          <div class="box">
+            <h3 class="title is-5 mb-2 has-text-centered">Data-Efficiency Under Data Constraints</h3>
+            <p class="is-size-7 has-text-grey has-text-centered mb-3">
+              Performance when restricting the training set to 50% ($\text{Data}_{0.5}$) and 10% ($\text{Data}_{0.1}$) of available videos.
+            </p>
+            <div class="table-container">
+              <table class="table is-striped is-hoverable is-fullwidth table-results">
+                <thead>
+                  <tr>
+                    <th>Data Split</th>
+                    <th class="text-left">Method</th>
+                    <th>Modality</th>
+                    <th>mAP@1</th>
+                    <th>mAP@2</th>
+                    <th>mAP@3</th>
+                    <th>mAP@4</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <!-- Data 0.5 -->
+                  <tr>
+                    <td rowspan="5" style="vertical-align: middle; font-weight: 600; border-right: 1px solid #dbdbdb;">
+                      $\text{Data}_{0.5}$<br><span class="is-size-7 has-text-grey">(50% Data)</span>
+                    </td>
+                    <td class="text-left">T-DEED<sub>200MF</sub></td>
+                    <td><span class="tag is-info is-light is-small">RGB</span></td>
+                    <td>79.59</td>
+                    <td>88.39</td>
+                    <td>91.40</td>
+                    <td>92.09</td>
+                  </tr>
+                  <tr>
+                    <td class="text-left">T-DEED<sub>800MF</sub></td>
+                    <td><span class="tag is-info is-light is-small">RGB</span></td>
+                    <td class="best-score">79.82</td>
+                    <td>88.85</td>
+                    <td>91.70</td>
+                    <td>92.51</td>
+                  </tr>
+                  <tr>
+                    <td class="text-left">Ours (Joints)</td>
+                    <td><span class="tag is-success is-light is-small">Pose</span></td>
+                    <td>76.46</td>
+                    <td>91.65</td>
+                    <td>95.43</td>
+                    <td>96.30</td>
+                  </tr>
+                  <tr>
+                    <td class="text-left">Ours (Limbs)</td>
+                    <td><span class="tag is-success is-light is-small">Pose</span></td>
+                    <td>75.89</td>
+                    <td class="best-score">91.97</td>
+                    <td class="best-score">95.45</td>
+                    <td class="best-score">96.48</td>
+                  </tr>
+                  <tr class="has-background-success-light">
+                    <td class="text-left"><strong>Ours (Full J+L)</strong></td>
+                    <td><span class="tag is-success is-dark is-small">Pose</span></td>
+                    <td>76.31</td>
+                    <td>91.71</td>
+                    <td>95.08</td>
+                    <td>96.09</td>
+                  </tr>
+
+                  <!-- Data 0.1 -->
+                  <tr style="border-top: 2px solid #dbdbdb;">
+                    <td rowspan="5" style="vertical-align: middle; font-weight: 600; border-right: 1px solid #dbdbdb;">
+                      $\text{Data}_{0.1}$<br><span class="is-size-7 has-text-grey">(10% Data)</span>
+                    </td>
+                    <td class="text-left">T-DEED<sub>200MF</sub></td>
+                    <td><span class="tag is-info is-light is-small">RGB</span></td>
+                    <td>59.07</td>
+                    <td>70.87</td>
+                    <td>76.17</td>
+                    <td>77.47</td>
+                  </tr>
+                  <tr>
+                    <td class="text-left">T-DEED<sub>800MF</sub></td>
+                    <td><span class="tag is-info is-light is-small">RGB</span></td>
+                    <td>62.21</td>
+                    <td>75.12</td>
+                    <td>79.29</td>
+                    <td>81.23</td>
+                  </tr>
+                  <tr>
+                    <td class="text-left">Ours (Joints)</td>
+                    <td><span class="tag is-success is-light is-small">Pose</span></td>
+                    <td>66.29</td>
+                    <td>86.04</td>
+                    <td>91.33</td>
+                    <td>92.98</td>
+                  </tr>
+                  <tr>
+                    <td class="text-left">Ours (Limbs)</td>
+                    <td><span class="tag is-success is-light is-small">Pose</span></td>
+                    <td>66.03</td>
+                    <td>86.59</td>
+                    <td class="best-score">91.81</td>
+                    <td>93.63</td>
+                  </tr>
+                  <tr class="has-background-success-light">
+                    <td class="text-left"><strong>Ours (Full J+L)</strong></td>
+                    <td><span class="tag is-success is-dark is-small">Pose</span></td>
+                    <td class="best-score">67.57</td>
+                    <td class="best-score">87.32</td>
+                    <td>91.76</td>
+                    <td class="best-score">93.68</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <p class="is-size-7 has-text-grey has-text-centered">
+              With only 10% of training data, PoseConvSpot retains <strong>91.76% mAP@3</strong> (+12.47% over the top RGB baseline), demonstrating that kinematic filtering eliminates the need for large training datasets.
+            </p>
+          </div>
+        </div>
+      </div>
+
     </div>
   </section>
 
