@@ -39,7 +39,7 @@
       margin-top: 5px;
       margin-bottom: 5px;
     }
-    .teaser-image {
+    .teaser-image, video {
       border-radius: 8px;
       box-shadow: 0 4px 12px rgba(0,0,0,0.08);
     }
@@ -68,7 +68,6 @@
       font-weight: 700;
       color: #1a1a1a;
     }
-    
     .table-results tr.ours-separator td {
       border-top: 2.5px solid #222 !important;
     }
@@ -130,10 +129,9 @@
         <div class="column has-text-centered mt-4">
           <div class="publication-links">
             
-            <!-- Paper PDF Button -->
+            <!-- Paper ACM Link Button -->
             <span class="link-block">
-              <!-- <a href="https://doi.org/10.1145/3841455.3841529" target="_blank" class="external-link button is-normal is-rounded is-dark"-->
-              <a href="./static/PoseConvSpot_camera_ready_version.pdf" target="_blank" class="external-link button is-normal is-rounded is-dark">
+              <a href="https://dl.acm.org/doi/10.1145/3841455.3841529" target="_blank" class="external-link button is-normal is-rounded is-dark">
                 <span class="icon"><i class="fas fa-file-pdf"></i></span>
                 <span>Paper</span>
               </a>
@@ -170,13 +168,38 @@
     </div>
   </section>
 
-  <!-- TEASER FIGURE SECTION -->
+<!-- TEASER FIGURE SECTION -->
   <section class="hero teaser">
     <div class="container is-max-desktop">
       <div class="hero-body has-text-centered">
+        <!-- Video Teaser -->
+        <div class="mt-5">
+          <video id="teaser-video" controls muted loop playsinline width="100%">
+            <source src="static/seq_21755_21945_academic_teaser.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+          </video>
+        </div>
+        <!-- Image Teaser -->
         <img src="static/images/teaser_PoseConvSpot.png" class="teaser-image" alt="PoseConvSpot Teaser" width="100%">
+
         <h2 class="subtitle has-text-centered mt-3 is-size-6">
           <strong>PoseConvSpot</strong> isolates athletes by projecting 2D pose skeletons into spatio-temporal video heatmaps, mitigating visual domain shifts and outperforming state-of-the-art RGB spotting baselines by <strong>+14.1% mAP@3</strong> in unseen arenas.
+        </h2>
+      </div>
+    </div>
+  </section>
+
+  <!-- INFERENCE VIDEO SECTION (All players jump detection) -->
+  <section class="section">
+    <div class="container is-max-desktop">
+      <h2 class="title is-3 section-title has-text-centered">Multi-Player Jump Detection Inference</h2>
+      <div class="has-text-centered">
+        <video id="inference-video" controls muted loop playsinline width="100%">
+          <source src="static/seq_60465_60575_results.mp4" type="video/mp4">
+          Your browser does not support the video tag.
+        </video>
+        <h2 class="subtitle has-text-centered mt-3 is-size-6">
+          Qualitative inference of <strong>PoseConvSpot</strong> running simultaneously across all players in a broadcast volleyball sequence.
         </h2>
       </div>
     </div>
@@ -190,8 +213,7 @@
         <ul>
           <li><strong>[August 2026]</strong> Project webpage launched and camera-ready paper accepted at ACM MMSports '26.</li>
           <li><strong>[November 2026]</strong> Oral presentation at <strong>ACM MMSports '26</strong> (Rio de Janeiro, Brazil).</li>
-          <li><strong>[Coming Soon]</strong> Public release of the training/inference code, dataset extraction pipeline, and pretrained checkpoints.</li>
-          <li><strong>[Coming Soon]</strong> Public release of the video teaser.</li>
+          <li><strong>[Coming Soon]</strong> Training and inference code available on <a href="https://github.com/Noambsf/PoseConvSpot" target="_blank">GitHub</a>.</li>
         </ul>
       </div>
     </div>
@@ -247,7 +269,7 @@
     </div>
   </section>
 
-<!-- EXPERIMENTAL RESULTS SECTION -->
+  <!-- EXPERIMENTAL RESULTS SECTION -->
   <section class="section">
     <div class="container is-max-widescreen">
       <h2 class="title is-3 section-title has-text-centered">Experimental Results</h2>
@@ -315,7 +337,6 @@
                     <td>93.78</td>
                     <td>87.28</td>
                   </tr>
-                  <!-- Ligne de séparation noire pour Ours -->
                   <tr class="ours-separator">
                     <td class="text-left">Ours (Joints)</td>
                     <td><span class="tag is-success is-light is-small">Pose</span></td>
@@ -388,7 +409,6 @@
                     <td>73.32</td>
                     <td>73.75</td>
                   </tr>
-                  <!-- Ligne de séparation noire pour Ours -->
                   <tr class="ours-separator">
                     <td class="text-left">Ours (Joints)</td>
                     <td><span class="tag is-success is-light is-small">Pose</span></td>
@@ -468,7 +488,6 @@
                     <td>91.70</td>
                     <td>92.51</td>
                   </tr>
-                  <!-- Ligne de séparation noire pour Ours (Data 0.5) -->
                   <tr class="ours-separator">
                     <td class="text-left">Ours (Joints)</td>
                     <td><span class="tag is-success is-light is-small">Pose</span></td>
@@ -514,7 +533,6 @@
                     <td>79.29</td>
                     <td>81.23</td>
                   </tr>
-                  <!-- Ligne de séparation noire pour Ours (Data 0.1) -->
                   <tr class="ours-separator">
                     <td class="text-left">Ours (Joints)</td>
                     <td><span class="tag is-success is-light is-small">Pose</span></td>
@@ -556,12 +574,20 @@
   <section class="section has-background-light" id="BibTeX">
     <div class="container is-max-desktop content">
       <h2 class="title is-3 section-title">BibTeX</h2>
-      <pre><code>@inproceedings{boussouf2026poseconvspot,
-  title={PoseConvSpot: Overcoming Domain Shifts in Precise Event Spotting for Sports Videos via Pose-Only Spatio-Temporal Regression},
-  author={Boussouf, No{\^a}m and Maglo, Adrien and Chaouch, Mohamed and Pham Dang, Paul and Saito, Hideo},
-  booktitle={Proceedings of the 9th ACM International Workshop on Multimedia Content Analysis in Sports (MMSports '26)},
-  year={2026},
-  doi={10.1145/3841455.3841529}
+      <pre><code>@inproceedings{10.1145/3841455.3841529,
+author = {Boussouf, No{\^a}m and Maglo, Adrien and Chaouch, Mohamed and Dang, Paul Pham and Saito, Hideo},
+title = {PoseConvSpot: Overcoming Domain Shifts in Precise Event Spotting for Sports Videos via Pose-Only Spatio-Temporal Regression},
+year = {2026},
+isbn = {9798400729447},
+publisher = {Association for Computing Machinery},
+address = {New York, NY, USA},
+url = {https://doi.org/10.1145/3841455.3841529},
+doi = {10.1145/3841455.3841529},
+booktitle = {Proceedings of the 9th International ACM Workshop on Multimedia Content Analysis in Sports},
+pages = {55–63},
+numpages = {9},
+location = {Rio de Janeiro, Brazil},
+series = {MMSports '26}
 }</code></pre>
     </div>
   </section>
